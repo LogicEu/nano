@@ -28,12 +28,12 @@ fail_os() {
 }
 
 mac_dlib() {
-    $cc ${flags[*]} ${inc[*]} ${lib[*]} -lenet -dynamiclib $src -o $name.dylib &&\
+    $cc ${flags[*]} ${inc[*]} ${lib[*]} -dynamiclib $src -o $name.dylib &&\
     install_name_tool -id @executable_path/lib/$name.dylib $name.dylib 
 }
 
 linux_dlib() {
-    $cc -shared ${flags[*]} ${inc[*]} ${lib[*]} -lenet -fPIC $src -o $name.so 
+    $cc -shared ${flags[*]} ${inc[*]} ${lib[*]} -fPIC $src -o $name.so 
 }
 
 dlib() {
